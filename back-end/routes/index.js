@@ -20,9 +20,9 @@ router.get("/getStudents", (req,res,next)=>{
 
 router.post("/addStudent", (req,res,next)=>{
     var studentToAdd = req.body.name;
-    connection.query("insert into students (name) values (?)", studentToAdd, (error,results,fields)=>{
+    connection.query("INSERT INTO students (name) VALUES (?)", studentToAdd, (error,results,fields)=>{
         if (error) throw error
-        connection.query("select * from students", (error,results,fields)=>{
+        connection.query("SELECT * FROM students", (error,results,fields)=>{
             if (error) throw error;
             res.json(results)
         });
